@@ -22,7 +22,7 @@ export const Hero = () => {
                 Convert the INR into Cryptocurrency
             </div>
             <div className="flex justify-center p-7 m-7">
-                {session.data?.user ? <SecondaryButton onClick={()=>{signIn("google")}}>Go To Dashbord</SecondaryButton> : <SecondaryButton onClick={()=>{signIn("google")}}>Sign In with google</SecondaryButton>}
+                {session.data?.user ? <SecondaryButton onClick={()=>{alert("hello")}}>go to dashbord</SecondaryButton> : <SecondaryButton onClick={()=>{signIn("google")}}>signIn with google</SecondaryButton>}
             </div>
         </div>
     </div>
