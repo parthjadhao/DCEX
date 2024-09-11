@@ -1,8 +1,15 @@
+-- CreateEnum
+CREATE TYPE "Provider" AS ENUM ('Google');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
     "username" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
+    "sub" TEXT NOT NULL DEFAULT ' ',
+    "provider" "Provider",
+    "name" TEXT,
+    "profiePicture" TEXT,
+    "password" TEXT,
     "solWalletId" TEXT,
     "inrWalledId" TEXT,
 
@@ -12,8 +19,8 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "SolWallet" (
     "id" TEXT NOT NULL,
-    "publickey" TEXT NOT NULL,
-    "privatekey" TEXT NOT NULL,
+    "publicKey" TEXT NOT NULL,
+    "privateKey" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
 
     CONSTRAINT "SolWallet_pkey" PRIMARY KEY ("id")
@@ -29,10 +36,10 @@ CREATE TABLE "InrWallet" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "SolWallet_publickey_key" ON "SolWallet"("publickey");
+CREATE UNIQUE INDEX "SolWallet_publicKey_key" ON "SolWallet"("publicKey");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "SolWallet_privatekey_key" ON "SolWallet"("privatekey");
+CREATE UNIQUE INDEX "SolWallet_privateKey_key" ON "SolWallet"("privateKey");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "SolWallet_userId_key" ON "SolWallet"("userId");
